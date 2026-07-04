@@ -3,257 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gurumoorthi K — Mechanical Design Engineer</title>
-<style>
-  :root{
-    --bg: #0b0d10;
-    --bg-raised: #14171c;
-    --line: #262b33;
-    --text: #e7e9ec;
-    --text-dim: #8a93a3;
-    --amber: #ff9a4d;
-    --cyan: #5fd3d3;
-    --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
-  a{color:inherit;text-decoration:none;}
-  ::selection{background:var(--amber);color:#0b0d10;}
-  .wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+<title>GURUMOORTHI K | Mechanical Design Portfolio</title>
 
-  header{position:sticky;top:0;z-index:50;background:rgba(11,13,16,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
-  .logo{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--text);}
-  .logo span{color:var(--amber);}
-  .nav-links{display:flex;gap:28px;font-family:var(--mono);font-size:13px;color:var(--text-dim);}
-  .nav-links a:hover{color:var(--amber);}
+<link rel="stylesheet" href="style.css">
 
-  .hero{padding:96px 0 72px;border-bottom:1px solid var(--line);}
-  .prompt-line{font-family:var(--mono);font-size:13px;color:var(--cyan);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
-  .prompt-line::before{content:"$";color:var(--text-dim);}
-  .cursor{display:inline-block;width:8px;height:16px;background:var(--amber);animation:blink 1s step-end infinite;}
-  @keyframes blink{50%{opacity:0;}}
-  h1{font-size:clamp(34px,6vw,54px);font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin-bottom:18px;}
-  h1 .accent{color:var(--amber);}
-  .hero-sub{font-size:18px;color:var(--text-dim);max-width:580px;margin-bottom:32px;}
-  .hero-sub code{font-family:var(--mono);background:var(--bg-raised);padding:2px 6px;border-radius:4px;color:var(--cyan);font-size:15px;}
-  .stack-row{display:flex;flex-wrap:wrap;gap:10px;}
-  .pill{font-family:var(--mono);font-size:12px;color:var(--text-dim);border:1px solid var(--line);padding:6px 12px;border-radius:20px;}
-
-  .section{padding:64px 0;border-bottom:1px solid var(--line);}
-  .section-label{font-family:var(--mono);font-size:13px;color:var(--amber);margin-bottom:8px;}
-  .section-title{font-size:28px;font-weight:700;margin-bottom:36px;letter-spacing:-0.01em;}
-
-  .project{border:1px solid var(--line);border-radius:10px;padding:0;margin-bottom:24px;background:var(--bg-raised);overflow:hidden;transition:border-color .2s ease, transform .2s ease;}
-  .project:hover{border-color:var(--amber);transform:translateY(-2px);}
-  .project-img{width:100%;display:block;background:#fff;}
-  .project-body{padding:24px 28px;}
-  .project-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
-  .project-title{font-size:19px;font-weight:600;}
-  .project-meta{font-family:var(--mono);font-size:12px;color:var(--text-dim);}
-  .project-desc{color:var(--text-dim);font-size:15px;margin-bottom:14px;max-width:640px;}
-  .project-tags{display:flex;gap:8px;flex-wrap:wrap;}
-  .tag{font-family:var(--mono);font-size:11px;color:var(--cyan);background:rgba(95,211,211,0.08);padding:3px 9px;border-radius:4px;}
-
-  .about-text{color:var(--text-dim);font-size:16px;max-width:640px;margin-bottom:28px;}
-  .timeline{border-left:1px solid var(--line);padding-left:24px;margin-bottom:8px;}
-  .role{margin-bottom:24px;position:relative;}
-  .role::before{content:"";position:absolute;left:-29px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--amber);}
-  .role-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
-  .role-title{font-weight:600;font-size:15px;}
-  .role-date{font-family:var(--mono);font-size:12px;color:var(--text-dim);}
-  .role-desc{color:var(--text-dim);font-size:14px;margin-top:4px;}
-
-  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;}
-  .skill-group h4{font-family:var(--mono);font-size:13px;color:var(--cyan);margin-bottom:12px;}
-  .skill-group ul{list-style:none;}
-  .skill-group li{color:var(--text-dim);font-size:14px;margin-bottom:8px;padding-left:16px;position:relative;}
-  .skill-group li::before{content:"›";position:absolute;left:0;color:var(--amber);}
-
-  .cert{border-left:2px solid var(--line);padding-left:18px;margin-bottom:20px;}
-  .cert-title{font-weight:600;font-size:15px;}
-  .cert-issuer{font-family:var(--mono);font-size:12px;color:var(--text-dim);margin-top:2px;}
-
-  .contact-section{padding:80px 0;text-align:center;border-bottom:none;}
-  .contact-title{font-size:30px;font-weight:700;margin-bottom:14px;}
-  .contact-sub{color:var(--text-dim);margin-bottom:32px;}
-  .contact-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;}
-  .contact-link{font-family:var(--mono);font-size:14px;border:1px solid var(--line);padding:10px 20px;border-radius:8px;transition:border-color .2s, color .2s;}
-  .contact-link:hover{border-color:var(--amber);color:var(--amber);}
-
-  footer{text-align:center;padding:28px 0;font-family:var(--mono);font-size:12px;color:var(--text-dim);}
-
-  @media (max-width:600px){
-    .nav-links{display:none;}
-    .hero{padding:64px 0 48px;}
-    .section{padding:48px 0;}
-    .skills-grid{grid-template-columns:1fr;}
-  }
-  @media (prefers-reduced-motion: reduce){.cursor{animation:none;}*{transition:none !important;}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <header>
-  <div class="wrap">
-    <nav>
-      <div class="logo">guru<span>.</span>moorthi</div>
-      <div class="nav-links">
-        <a href="#work">work</a>
-        <a href="#skills">skills</a>
-        <a href="#about">about</a>
-        <a href="#contact">contact</a>
-      </div>
-    </nav>
-  </div>
+<nav>
+<h2>GURUMOORTHI K</h2>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#certificates">Certificates</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <div class="prompt-line">whoami<span class="cursor"></span></div>
-    <h1>Gurumoorthi K designs<br>mechanical parts <span class="accent">that fit, every time</span>.</h1>
-    <p class="hero-sub">Final-year Mechanical Engineering student at Mother Teresa College of Engineering &amp; Technology, Anna University. Focused on <code>CAD modeling</code>, machine design, and sheet metal work — currently building out a portfolio of assemblies and manufacturing drawings.</p>
-    <div class="stack-row">
-      <span class="pill">SolidWorks</span>
-      <span class="pill">Creo Parametric</span>
-      <span class="pill">AutoCAD</span>
-      <span class="pill">GD&amp;T</span>
-      <span class="pill">Sheet Metal Design</span>
-    </div>
-  </div>
+<!-- HOME -->
+
+<section id="home">
+
+<div class="hero">
+
+<h1>GURUMOORTHI K</h1>
+
+<h2>Mechanical Design | CAD | Production</h2>
+
+<p>
+Final-Year Mechanical Engineering Student passionate about
+Mechanical Design, CAD Modeling, Sheet Metal Design,
+and Production Drawings.
+</p>
+
+<a href="resume.pdf" class="btn">Download Resume</a>
+
+<a href="https://www.linkedin.com/in/gurumoorthi004" class="btn2">
+LinkedIn
+</a>
+
+</div>
+
 </section>
 
-<section class="section" id="work">
-  <div class="wrap">
-    <div class="section-label">02 / selected work</div>
-    <div class="section-title">Things I've modeled</div>
+<!-- ABOUT -->
 
-    <div class="project">
-      <img class="project-img" src="images/flange-coupling.jpg" alt="Flange coupling assembly in SolidWorks">
-      <div class="project-body">
-        <div class="project-head">
-          <div class="project-title">Flange Coupling Assembly</div>
-          <div class="project-meta">SolidWorks</div>
-        </div>
-        <p class="project-desc">Full 3D assembly of a flange coupling with bolted joint connections — modeled hub, flange faces, and fastener pattern, then mated and constrained as a working assembly to check fit and bolt-circle alignment.</p>
-        <div class="project-tags">
-          <span class="tag">Assembly Modeling</span>
-          <span class="tag">Mate Constraints</span>
-          <span class="tag">Machine Elements</span>
-        </div>
-      </div>
-    </div>
+<section id="about">
 
-    <div class="project">
-      <img class="project-img" src="images/bracket-drawing.jpg" alt="Sheet metal bracket manufacturing drawing">
-      <div class="project-body">
-        <div class="project-head">
-          <div class="project-title">Sheet Metal Mounting Bracket</div>
-          <div class="project-meta">SolidWorks — Sheet Metal &amp; Drafting</div>
-        </div>
-        <p class="project-desc">Designed a formed sheet metal bracket with multiple bend reliefs, a slotted mounting hole, and a flat-pattern layout for fabrication. Produced a full manufacturing drawing with bend angles, radii, and dimensions toleranced for stamping.</p>
-        <div class="project-tags">
-          <span class="tag">Sheet Metal</span>
-          <span class="tag">Flat Pattern</span>
-          <span class="tag">Engineering Drawing</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<h2>About Me</h2>
+
+<p>
+
+I am a final-year Mechanical Engineering student at
+Mother Teresa College of Engineering and Technology,
+Trichy.
+
+I enjoy designing mechanical components using SolidWorks,
+AutoCAD and Creo Parametric.
+
+My career goal is to become a Mechanical Design Engineer.
+
+</p>
+
 </section>
 
-<section class="section" id="skills">
-  <div class="wrap">
-    <div class="section-label">03 / skills</div>
-    <div class="section-title">What I work with</div>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h4>CAD &amp; Design Tools</h4>
-        <ul>
-          <li>SolidWorks — 3D part modeling, assemblies, sheet metal</li>
-          <li>Creo Parametric — parametric modeling, sketching</li>
-          <li>AutoCAD — 2D drafting, layouts, dimensioning</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <h4>Core Mechanical Knowledge</h4>
-        <ul>
-          <li>Engineering drawing &amp; manufacturing processes</li>
-          <li>Strength of materials (fundamentals)</li>
-          <li>Machine elements (introduction level)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2>Technical Skills</h2>
+
+<div class="skill-box">
+
+<div>SolidWorks</div>
+
+<div>Creo Parametric</div>
+
+<div>AutoCAD</div>
+
+<div>CAD Modeling</div>
+
+<div>Sheet Metal Design</div>
+
+<div>Production Drawings</div>
+
+<div>GD&T</div>
+
+<div>3D Printing</div>
+
+</div>
+
 </section>
 
-<section class="section" id="about">
-  <div class="wrap">
-    <div class="section-label">04 / about</div>
-    <div class="section-title">Background</div>
-    <p class="about-text">Pursuing a B.E. in Mechanical Engineering at Mother Teresa College of Engineering &amp; Technology (Anna University), based in Trichy, Tamil Nadu. Looking for an entry-level role where I can apply CAD and design fundamentals, get hands-on with manufacturing, and keep learning on the job.</p>
+<!-- PROJECTS -->
 
-    <div class="timeline">
-      <div class="role">
-        <div class="role-head">
-          <div class="role-title">B.E. Mechanical Engineering</div>
-          <div class="role-date">Pursuing</div>
-        </div>
-        <div class="role-desc">Mother Teresa College of Engineering &amp; Technology, Trichy — Anna University, Chennai</div>
-      </div>
-      <div class="role">
-        <div class="role-head">
-          <div class="role-title">Higher Secondary (12th)</div>
-          <div class="role-date">2023 — 67%</div>
-        </div>
-        <div class="role-desc">GHSS Valanadu, State Board</div>
-      </div>
-      <div class="role">
-        <div class="role-head">
-          <div class="role-title">Secondary School (10th)</div>
-          <div class="role-date">2021 — All Pass</div>
-        </div>
-        <div class="role-desc">GHSS Valanadu, State Board</div>
-      </div>
-    </div>
+<section id="projects">
 
-    <div class="section-label" style="margin-top:48px;">certifications</div>
-    <div style="margin-top:16px;">
-      <div class="cert">
-        <div class="cert-title">Advanced Machining Processes</div>
-        <div class="cert-issuer">NPTEL (IIT Guwahati) — Aug–Oct 2025, 8-week course, score 50/100</div>
-      </div>
-      <div class="cert">
-        <div class="cert-title">SolidWorks: Design for Mechatronics</div>
-        <div class="cert-issuer">LinkedIn Learning — completed Jan 2026</div>
-      </div>
-      <div class="cert">
-        <div class="cert-title">Lean Six Sigma Foundations</div>
-        <div class="cert-issuer">LinkedIn Learning — completed Jan 2026</div>
-      </div>
-      <div class="cert">
-        <div class="cert-title">AI Tools &amp; ChatGPT Workshop</div>
-        <div class="cert-issuer">be10x — Jan 2026</div>
-      </div>
-    </div>
-  </div>
+<h2>Featured Projects</h2>
+
+<div class="project">
+
+<h3>Flange Coupling Design</h3>
+
+<p>
+
+• Complete 3D CAD Model
+
+• Assembly Design
+
+• Manufacturing Drawing
+
+• SolidWorks
+
+</p>
+
+</div>
+
+<div class="project">
+
+<h3>Sheet Metal Design</h3>
+
+<p>
+
+• Sheet Metal Modeling
+
+• Flat Pattern
+
+• Production Drawing
+
+• SolidWorks Sheet Metal
+
+</p>
+
+</div>
+
 </section>
 
-<section class="contact-section" id="contact">
-  <div class="wrap">
-    <div class="contact-title">Open to opportunities.</div>
-    <p class="contact-sub">Looking for an entry-level mechanical/design engineering role.</p>
-    <div class="contact-links">
-      <a class="contact-link" href="mailto:gurumoorthik14@gmail.com">gurumoorthik14@gmail.com</a>
-      <a class="contact-link" href="tel:6383099126">6383099126</a>
-      <a class="contact-link" href="https://www.linkedin.com/in/gurumoorthi004" target="_blank">linkedin.com/in/gurumoorthi004</a>
-    </div>
-  </div>
+<!-- CERTIFICATES -->
+
+<section id="certificates">
+
+<h2>Certifications</h2>
+
+<ul>
+
+<li>NPTEL – Advanced Machining Process</li>
+
+<li>LinkedIn Learning – SolidWorks Design for Mechatronics</li>
+
+<li>LinkedIn Learning – Learn Six Sigma</li>
+
+<li>be10x – AI Tools Workshop</li>
+
+<li>Python Training</li>
+
+</ul>
+
 </section>
 
-<footer>Trichy, Tamil Nadu</footer>
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>Email : gurumoorthig004@gmail.com</p>
+
+<p>Phone : +91 6383099126</p>
+
+<p>Location : Trichy, Tamil Nadu</p>
+
+<p>
+LinkedIn :
+<a href="https://www.linkedin.com/in/gurumoorthi004">
+linkedin.com/in/gurumoorthi004
+</a>
+</p>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 GURUMOORTHI K | Mechanical Design Portfolio
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
